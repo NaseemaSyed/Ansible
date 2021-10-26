@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+  
+  tasks:
+    - name: Get the Date.
+      command: date
+      register: current_date
+      changed_when: false
+
+    - name: Print date
+      debug:
+        msg: "{{current_date.stdout}}"
